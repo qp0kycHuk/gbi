@@ -1,9 +1,9 @@
 const elementsSizes = {
   xs: '24px',
   sm: '32px',
-  base: '50px',
-  lg: '60px',
-  xl: '72px',
+  base: '42px',
+  lg: '52px',
+  xl: '64px',
 }
 
 const headingStyles = {
@@ -30,7 +30,7 @@ module.exports = {
       sm: 580 + 'px',
       md: 740 + 'px',
       lg: 1170 + 'px',
-      xl: 1230 + 'px',
+      xl: 1240 + 'px',
     },
     colors: {
       primary: withOpacity('--primary-rgb'),
@@ -41,6 +41,7 @@ module.exports = {
       yellow: withOpacity('--yellow-rgb'),
       white: withOpacity('--white-rgb'),
       black: withOpacity('--black-rgb'),
+      grey: withOpacity('--grey-rgb'),
       l1: withOpacity('--bg1-rgb'),
       l2: withOpacity('--bg2-rgb'),
       l3: withOpacity('--bg3-rgb'),
@@ -66,6 +67,12 @@ module.exports = {
         '3.5xl': ['2rem', '1.35'],
         '4.5xl': ['2.5rem', '1.35'],
       },
+      lineHeight: {
+        xs: '1.1'
+      },
+      borderRadius: {
+        '2.5xl': '1.25rem'
+      }
     },
   },
   plugins: [

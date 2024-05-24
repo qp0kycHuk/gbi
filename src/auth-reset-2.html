@@ -1,0 +1,36 @@
+<%= require('./html-includes/head.html')() %>
+
+<section class="auth-layout">
+  <div>
+    <!-- placeholder for grid -->
+  </div>
+  <form class="auth-form mx-auto">
+    <div class="auth-form-header">
+      <div class="font-alt font-semibold text-2xl sm:text-3.5xl text-center">Смена пароля</div>
+    </div>
+    <div class="auth-form-content">
+      <div class="text-sm mb-8 opacity-60">
+        Код для смены пароля будет выслан вам <br>
+        на указанную почту
+      </div>
+      <div class="flex flex-col gap-4">
+        <label class="block">
+          <div class="font-semibold mb-2">Код</div>
+          <input type="text" class="input w-full">
+        </label>
+      </div>
+
+      <button class="btn btn-fill btn-primary w-full mt-4">Восстановить</button>
+      <div class="flex mt-4">
+        <button type="button" class="btn btn-text btn-primary font-semibold border-b border-dashed">Не получили код?</button>
+      </div>
+    </div>
+  </form>
+  <div>
+    <!-- placeholder for grid -->
+  </div>
+
+</section>
+
+<%= require('./html-includes/auth-girl.html')() %>
+<%= require('./html-includes/foot.html')() %>

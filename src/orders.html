@@ -1,0 +1,236 @@
+<%= require('./html-includes/head.html')() %>
+
+
+<header class="header">
+  <a href="/orders.html" class="flex items-center gap-4 sm:gap-5">
+    <img src="img/logo.png" alt="" class="w-12 sm:w-18">
+    <div class="font-alt text-sm sm:text-xl flex items-center gap-2">
+      <div class="font-semibold max-sm:hidden">БЛОК ЖБИ Россия</div>
+      <div class="opacity-40 max-sm:hidden">|</div>
+      <div class="opacity-40">Личный кабинет</div>
+    </div>
+  </a>
+  <div class="relative header-user" data-toggle-cover>
+    <button class="btn btn-primary btn-whitebg header-user-btn" data-toggle-link>
+      <c-icon class="icon ml-1 text-default" href="img/icons.svg#to-down"></c-icon>
+
+      <div class="size-[26px] sm:size-[30px] flex rounded-full bg-primary relative overflow-hidden">
+        <c-icon class="icon text-xl m-auto text-white" href="img/icons.svg#user"></c-icon>
+        <!-- or -->
+        <!-- <img src="img/test.jpg" alt="" class="absolute-fit object-cover"> -->
+      </div>
+    </button>
+    <div class="header-user-shadow" data-toggle-link></div>
+    <div class="header-user-content" data-toggle-content>
+      <div class="text-xl font-semibold font-alt mb-2">Щербаков Иван</div>
+      <div class="text-sm">8 (861) 277-34-19</div>
+      <div class="text-sm">8 (861) 279-36-00</div>
+
+      <div class="mt-5 flex flex-col gap-2">
+        <button class="btn btn-primary btn-fill w-full">Редактировать</button>
+        <button class="btn btn-red btn-light w-full">Выйти</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="dashboard-layout">
+  <div class="flex items-start gap-6">
+    <div class="sidebar">
+      <div class="flex items-center px-4 -mx-4 bg-white/15 py-6 -mt-6 mb-6 rounded-2.5xl">
+        <div>
+          <div class="font-medium">Щербаков Иван Евгеньевич</div>
+          <div class="opacity-70">ООО “Кровь и бетон”</div>
+        </div>
+        <div class="size-12 bg-l3 rounded-full overflow-hidden relative ml-auto">
+          <div class="size-full bg-primary/15 flex">
+            <c-icon class="icon text-xl text-primary m-auto dark:text-white" href="img/icons.svg#user"></c-icon>
+            <!-- or -->
+            <!-- <img src="img/test.jpg" alt="" class="absolute-fit object-cover"> -->
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <div class="flex items-center gap-2">
+          <c-icon class="icon text-xl text-yellow" href="img/icons.svg#email"></c-icon>
+          <div class="font-semibold opacity-50">Почта</div>
+        </div>
+        <div class="mt-2"> blood&block@info.ru </div>
+      </div>
+      <div class="my-3 border-t border-white/30 border-dashed"></div>
+      <div class="">
+        <div class="flex items-center gap-2">
+          <c-icon class="icon text-xl text-[#32C883]" href="img/icons.svg#document"></c-icon>
+          <div class="font-semibold opacity-50">ИНН:</div>
+        </div>
+        <div class="mt-2"> 2308160346 </div>
+      </div>
+      <div class="my-3 border-t border-white/30 border-dashed"></div>
+      <div class="">
+        <div class="flex items-center gap-2">
+          <c-icon class="icon text-xl text-[#2A94EF]" href="img/icons.svg#point-on-map"></c-icon>
+          <div class="font-semibold opacity-50">Бизнес регион:</div>
+        </div>
+        <div class="mt-2"> Краснодарский край </div>
+      </div>
+      <div class="my-3 border-t border-white/30 border-dashed"></div>
+      <div class="">
+        <div class="flex items-center gap-2">
+          <c-icon class="icon text-xl text-[#E93983]" href="img/icons.svg#location"></c-icon>
+          <div class="font-semibold opacity-50">Юридический адрес:</div>
+        </div>
+        <div class="mt-2">
+          350000,Краснодарский край,
+          г. Краснодар, ул, Северная, д. 326,
+          помещение 702
+        </div>
+      </div>
+      <div class="my-3 border-t border-white/30 border-dashed"></div>
+      <div class="">
+        <div class="flex items-center gap-2">
+          <c-icon class="icon text-xl text-[#FE8934]" href="img/icons.svg#phone"></c-icon>
+          <div class="font-semibold opacity-50">Телефон-ы:</div>
+        </div>
+        <div class="mt-2">
+          (861) 277-34-19 <br>
+          (861) 277-34-19
+        </div>
+      </div>
+    </div>
+
+    <div class="grow">
+      <div class="tabs mb-7">
+        <div class="tabs-item active">Текущие заказы</div>
+        <a href="javascript:;" class="tabs-item">Завершенные заказы</a>
+        <a href="javascript:;" class="tabs-item">Отмененные заказы</a>
+      </div>
+
+      <div class="flex flex-col gap-4">
+
+        <div class="order">
+          <div class="flex items-center justify-between gap-3 order-header">
+            <button class="relative flex items-center gap-3 btn-group">
+              <div class="text-1.5xl font-alt font-semibold">
+                Заказ № <span class="text-primary">99900011122233444555</span>
+              </div>
+              <div class="btn btn-icon btn-primary btn-sm">
+                <c-icon class="icon opacity-60 text-xl" href="img/icons.svg#copy"></c-icon>
+              </div>
+            </button>
+            <button class="btn btn-text btn-default border-b border-dashed">
+              <span class="text-sm opacity-70 font-medium">Смотреть состав заказа</span>
+            </button>
+            <div class="text-sm opacity-70 ">Дата заявки: 31.09.2023</div>
+          </div>
+          <div class="border-t border-default/10"></div>
+          <div class="order-content">
+            <div class="grid grid-cols-3 gap-6">
+              <div>
+                <div class="font-semibold font-alt mb-2">Статус заказа:</div>
+
+                <div class="relative" data-toggle-cover>
+                  <button class="btn btn-[#DDFFA6] btn-fill btn-sm gap-1.5 rounded-full text-grey w-full" data-toggle-link>
+                    <div class="text-sm leading-none font-semibold">В производстве</div>
+                    <div class="text-sm leading-none opacity-60 font-normal">21.10.2024</div>
+                    <c-icon class="icon ml-auto" href="img/icons.svg#to-down"></c-icon>
+                  </button>
+
+                  <div class="dropdown left-0 w-full p-4" data-toggle-content>
+                    <div class="font-alt font-semibold opacity-50 mb-2">Предыдущие статусы</div>
+
+                    <div class="text-sm font-semibold">Отгрузка</div>
+                    <div class="text-sm">от 21.10.2024</div>
+                    <div class="border-t border-dashed border-default/30 my-2"></div>
+                    <div class="text-sm font-semibold">Отгрузка</div>
+                    <div class="text-sm">от 19.10.2024</div>
+                    <div class="border-t border-dashed border-default/30 my-2"></div>
+                    <div class="text-sm font-semibold">Отгрузка завершена</div>
+                    <div class="text-sm">от 11.10.2024</div>
+                  </div>
+                  <div class="dropdown-shadow" data-toggle-link></div>
+                </div>
+              </div>
+              <div>
+                <div class="font-semibold font-alt mb-2">Статус оплаты:</div>
+                <div class="relative" data-toggle-cover>
+                  <button class="btn btn-[#E4EEFF] btn-fill btn-sm gap-1.5 rounded-full text-grey w-full" data-toggle-link>
+                    <div class="text-sm leading-none font-semibold">Ожидает оплаты</div>
+                    <div class="text-sm leading-none opacity-60 font-normal">21.10.2024</div>
+                    <c-icon class="icon ml-auto" href="img/icons.svg#to-down"></c-icon>
+                  </button>
+
+
+                  <div class="dropdown left-0 w-full p-4" data-toggle-content>
+                    <div class="font-alt font-semibold opacity-50 mb-2">Предыдущие статусы</div>
+
+                    <div class="text-sm font-semibold">Отгрузка</div>
+                    <div class="text-sm">от 21.10.2024</div>
+                    <div class="border-t border-dashed border-default/30 my-2"></div>
+                    <div class="text-sm font-semibold">Отгрузка</div>
+                    <div class="text-sm">от 19.10.2024</div>
+                    <div class="border-t border-dashed border-default/30 my-2"></div>
+                    <div class="text-sm font-semibold">Отгрузка завершена</div>
+                    <div class="text-sm">от 11.10.2024</div>
+                  </div>
+                  <div class="dropdown-shadow" data-toggle-link></div>
+                </div>
+              </div>
+              <div>
+                <div class="font-semibold font-alt mb-2">Остаток отсрочки платежа:</div>
+                <div class="relative">
+                  <button class="btn btn-l2 btn-fill btn-sm gap-1.5 rounded-full text-grey w-full">
+                    <div class="text-sm leading-none font-semibold">До 22.05.2024</div>
+                    <div class="text-sm leading-none opacity-60 font-normal ml-auto">Еще 2 дня</div>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="mt-5">
+              <div class="font-alt font-semibold mb-4">Документы:</div>
+              <div class="flex flex-col items-start gap-2 group" data-toggle-cover>
+                <a href="javascript:;" class="btn btn-text btn-primary border-b border-dashed">
+                  Доставка №155371/2 от 23.04.2024 (СДЭК (Самовывоз), к оплате 0 ₽)
+                </a>
+                <a href="javascript:;" class="btn btn-text btn-primary border-b border-dashed">
+                  Доставка №155371/2 от 23.04.2024 (СДЭК (Самовывоз)
+                </a>
+                <a href="javascript:;" class="btn btn-text btn-primary border-b border-dashed hidden group-[.toggle-active]:flex">
+                  Доставка №155371/2 от 23.04.2024 (СДЭК (Самовывоз)
+                </a>
+                <a href="javascript:;" class="btn btn-text btn-primary border-b border-dashed hidden group-[.toggle-active]:flex">
+                  Доставка №155371/2 от 23.04.2024 (СДЭК (Самовывоз)
+                </a>
+                <button class="btn btn-text btn-primary border-b border-dashed font-semibold" data-toggle-link>
+                  <span class="active-disabled">Показать еще</span>
+                  <span class="active-enabled">Скрыть</span>
+                </button>
+              </div>
+            </div>
+            <div class="mt-6 flex items-center justify-between bg-default/5 p-4 rounded-xl">
+              <div class="flex items-center gap-4">
+                <div class="size-10 rounded-full relative overflow-hidden">
+                  <img src="img/test.jpg" alt="" class="absolute-fit object-cover">
+                </div>
+                <div class="">
+                  <div class="text-sm font-alt font-semibold">Ответственный менеджер: </div>
+                  <div class="text-sm opacity-60">Константинова Юлия Владимировна</div>
+                </div>
+              </div>
+              <div class="h-10 w-px bg-default/15"></div>
+              <div>
+                <div class="text-sm font-alt font-semibold text-primary">+7 (918) 000 0000</div>
+                <div class="text-sm opacity-60">YulaYula@mail.ru</div>
+              </div>
+              <button class="btn btn-primary btn-fill">Отправить сообщение</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<%= require('./html-includes/auth-girl.html')() %>
+<%= require('./html-includes/foot.html')() %>

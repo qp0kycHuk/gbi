@@ -1,0 +1,75 @@
+<%= require('./html-includes/head.html')() %>
+
+<section class="auth-layout">
+  <div>
+    <!-- placeholder for grid -->
+  </div>
+  <form class="auth-form mx-auto">
+    <div class="auth-form-header">
+      <div class="font-alt font-semibold text-2xl sm:text-3.5xl text-center">Смена пароля</div>
+    </div>
+    <div class="auth-form-content">
+      <div class="text-sm mb-8 opacity-60">
+        Придумайте новый пароль
+      </div>
+      <div class="flex flex-col gap-4">
+        <label class="block">
+          <div class="font-semibold mb-2">Пароль</div>
+          <div class="relative">
+            <input type="password" class="input w-full" id="password">
+
+            <div class="absolute right-2 top-1/2 -translate-y-1/2">
+              <button type="button" class="btn btn-sm btn-default btn-icon" data-show-pass="password">
+                <c-icon class="icon text-2xl opacity-40 active-disabled" href="img/icons.svg#eye"></c-icon>
+                <c-icon class="icon text-2xl opacity-40 active-enabled" href="img/icons.svg#eye-hidden"></c-icon>
+              </button>
+            </div>
+          </div>
+        </label>
+        <label class="block">
+          <div class="font-semibold mb-2">Повторите пароль</div>
+          <div class="relative">
+            <input type="password" class="input w-full" id="password-repeat">
+
+            <div class="absolute right-2 top-1/2 -translate-y-1/2">
+              <button type="button" class="btn btn-sm btn-default btn-icon" data-show-pass="password-repeat">
+                <c-icon class="icon text-2xl opacity-40 active-disabled" href="img/icons.svg#eye"></c-icon>
+                <c-icon class="icon text-2xl opacity-40 active-enabled" href="img/icons.svg#eye-hidden"></c-icon>
+              </button>
+            </div>
+          </div>
+        </label>
+      </div>
+
+      <div class="mt-4 rounded-xl py-3 px-6 bg-[#88FEA2]/30">
+        <span class="text-sm opacity-80 leading-xs">
+          Минимум 8 символов с прописными <br>
+          или строчными буквами и цифрами
+        </span>
+      </div>
+
+      <button class="btn btn-fill btn-primary w-full mt-4">Восстановить</button>
+
+      <div class="text-sm text-red leading-xs mt-8 flex flex-col gap-3">
+        <div>
+          Пароль должен быть не менее <br>
+          <b>8 символов длиной</b>
+        </div>
+        <div>
+          Пароль должен содержать <b>латинские символы <br>
+            нижнего регистра (a-z)</b>
+        </div>
+        <div>
+          Пароль должен содержать <b>цифры (0-9)</b>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div>
+    <!-- placeholder for grid -->
+  </div>
+
+</section>
+
+<%= require('./html-includes/auth-girl.html')() %>
+<%= require('./html-includes/foot.html')() %>

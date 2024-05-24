@@ -1,0 +1,40 @@
+<%= require('./html-includes/head.html')() %>
+
+<section class="auth-layout">
+  <div class="flex flex-col items-center gap-4  justify-center">
+    <img src="img/logo.png" alt="" class="w-24">
+    <div class="text-center uppercase font-semibold font-alt text-2.5xl leading-none">БЛОК ЖБИ Россия</div>
+    <div class="text-center font-alt text-xl leading-none opacity-40">Личный кабинет</div>
+  </div>
+  <form class="auth-form mx-auto">
+    <div class="auth-form-header">
+      <div class="font-alt font-semibold text-2xl sm:text-3.5xl text-center">Войти</div>
+    </div>
+    <div class="auth-form-content">
+      <div class="flex flex-col gap-4">
+        <label class="block">
+          <div class="font-semibold mb-2">Логин</div>
+          <input type="text" class="input w-full">
+        </label>
+        <label class="block">
+          <div class="font-semibold mb-2">Пароль</div>
+          <input type="password" class="input w-full">
+        </label>
+      </div>
+
+      <div class="flex mt-4">
+        <a href="auth-reset-1.html" class="btn btn-text btn-primary font-semibold border-b border-dashed">Забыли пароль?</a>
+      </div>
+
+      <button class="btn btn-fill btn-primary w-full mt-4">Войти</button>
+    </div>
+  </form>
+  <div>
+    <!-- placeholder for grid -->
+  </div>
+
+
+</section>
+
+<%= require('./html-includes/auth-girl.html')() %>
+<%= require('./html-includes/foot.html')() %>

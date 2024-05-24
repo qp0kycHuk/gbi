@@ -54,6 +54,7 @@
   },
   "dependencies": {
     "@fancyapps/ui": "^5.0.17",
+    "@qpokychuk/gilroy": "^1.0.2",
     "@qpokychuk/inter": "^1.0.1",
     "@qpokychuk/ripple": "^1.5.6",
     "gsap": "^3.12.2",

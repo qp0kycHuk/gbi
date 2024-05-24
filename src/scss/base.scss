@@ -1,0 +1,109 @@
+@import 'functions';
+
+:root {
+  // theme colors
+  --primary-rgb : #{cl(#295EB6)};
+  --sec-rgb     : #{cl(#CE9B44)};
+  --blue-rgb    : #{cl(#3E81C0)};
+  --red-rgb     : #{cl(#D34343)};
+  --green-rgb   : #{cl(#27ae60)};
+  --yellow-rgb  : #{cl(#FFC842)};
+
+  // colors
+  --bg1-rgb     : #{cl(#ededef)};
+  --bg2-rgb     : #{cl(#f4f4f4)};
+  --bg3-rgb     : #{cl(#fff)};
+  --default-rgb : #{cl(#373737)};
+  --white-rgb   : #{cl(#fff)};
+  --black-rgb   : #{cl(#000)};
+  --grey-rgb    : #{cl(#373737)};
+
+  // variables
+  --bg1    : rgb(var(--bg1-rgb));
+  --bg2    : rgb(var(--bg2-rgb));
+  --bg3    : rgb(var(--bg3-rgb));
+  --default: rgb(var(--default-rgb));
+
+  // font
+  --font-base: 'Inter', arial, helvetica, sans-serif;
+  --font-alt : 'Gilroy', arial, helvetica, sans-serif;
+
+}
+
+body {
+  display       : flex;
+  flex-direction: column;
+  min-height    : 100vh;
+  background    : theme('colors.l1');
+  font-family   : theme('fontFamily.base');
+  color         : theme('colors.default');
+
+  &.menu-opened {
+    overflow: hidden;
+  }
+}
+
+[data-theme="dark"] {
+  --bg1-rgb     : #{cl(#181818)};
+  --bg2-rgb     : #{cl(#282828)};
+  --bg3-rgb     : #{cl(#323232)};
+  --default-rgb : #{cl(#fff)};
+
+}
+
+@layer components {
+  .active-enabled:not(:is(:is(.toggle-active, .tab-active, .active) .active-enabled)) {
+    display: none !important;
+  }
+
+  .active-disabled:is(:is(.toggle-active, .tab-active, .active) .active-disabled) {
+    display: none !important;
+  }
+
+  .is-active-disabled:is(.toggle-active, .active) {
+    display: none;
+  }
+
+  .is-active-enabled:not(:is(.toggle-active, .active)) {
+    display: none;
+  }
+
+  .absolute-fit {
+    position: absolute;
+    top     : 0;
+    left    : 0;
+    width   : 100%;
+    height  : 100%;
+  }
+
+  .hover-underline {
+    text-underline-offset: 4px;
+
+    @media(hover) {
+      &:hover {
+        text-decoration: underline;
+        opacity        : 1;
+      }
+    }
+  }
+
+  .btn:not(.btn-text) {
+    font-family: theme('fontFamily.alt');
+    font-weight: 600;
+  }
+
+  .input {
+    background: theme('colors.l3');
+  }
+
+  .btn,
+  .input {
+    border-radius: 8px;
+
+  }
+
+  .btn-text {
+    border-radius: initial;
+  }
+
+}
