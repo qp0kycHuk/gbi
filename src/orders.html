@@ -2,6 +2,9 @@
 
 
 <header class="header">
+  <button class="btn btn-sm btn-text lg:hidden mr-3" data-toggle-link="sidebar">
+    <c-icon class="icon text-3.5xl" href="img/icons.svg#menu"></c-icon>
+  </button>
   <a href="/orders.html" class="flex items-center gap-4 sm:gap-5">
     <img src="img/logo.png" alt="" class="w-12 sm:w-18">
     <div class="font-alt text-sm sm:text-xl flex items-center gap-2">
@@ -10,8 +13,8 @@
       <div class="opacity-40">Личный кабинет</div>
     </div>
   </a>
-  <div class="relative header-user" data-toggle-cover>
-    <button class="btn btn-primary btn-whitebg header-user-btn" data-toggle-link>
+  <div class="relative header-user max-lg:ml-auto" data-toggle-cover>
+    <button class="btn btn-primary header-user-btn" data-toggle-link>
       <c-icon class="icon ml-1 text-default" href="img/icons.svg#to-down"></c-icon>
 
       <div class="size-[26px] sm:size-[30px] flex rounded-full bg-primary relative overflow-hidden">
@@ -27,8 +30,8 @@
       <div class="text-sm">8 (861) 279-36-00</div>
 
       <div class="mt-5 flex flex-col gap-2">
-        <button class="btn btn-primary btn-fill w-full">Редактировать</button>
-        <button class="btn btn-red btn-light w-full">Выйти</button>
+        <button class="btn btn-primary btn-fill w-full" data-fancybox-modal data-src="profile-dialog.html">Редактировать</button>
+        <button class="btn btn-red btn-light w-full" data-fancybox-modal data-src="confirm-dialog.html">Выйти</button>
       </div>
     </div>
   </div>
@@ -36,7 +39,7 @@
 
 <section class="dashboard-layout">
   <div class="flex items-start gap-6">
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
       <div class="flex items-center px-4 -mx-4 bg-white/15 py-6 -mt-6 mb-6 rounded-2.5xl">
         <div>
           <div class="font-medium">Щербаков Иван Евгеньевич</div>
@@ -97,8 +100,9 @@
         </div>
       </div>
     </div>
+    <div class="sidebar-shadow"></div>
 
-    <div class="grow">
+    <div class="content">
       <div class="tabs mb-7">
         <div class="tabs-item active">Текущие заказы</div>
         <a href="javascript:;" class="tabs-item">Завершенные заказы</a>
@@ -108,25 +112,27 @@
       <div class="flex flex-col gap-4">
 
         <div class="order">
-          <div class="flex items-center justify-between gap-3 order-header">
-            <button class="relative flex items-center gap-3 btn-group">
-              <div class="text-1.5xl font-alt font-semibold">
+          <div class="flex items-start lg:items-center justify-between gap-3 order-header max-lg:flex-col">
+            <button class="relative flex items-center gap-3 btn-group text-left group" data-copy="99900011122233444555">
+              <div class="sm:text-1.5xl font-alt font-semibold">
                 Заказ № <span class="text-primary">99900011122233444555</span>
               </div>
               <div class="btn btn-icon btn-primary btn-sm">
                 <c-icon class="icon opacity-60 text-xl" href="img/icons.svg#copy"></c-icon>
               </div>
+
+              <div class="tooltip tooltip-right" data-copy-notification>Скопировать</div>
             </button>
-            <button class="btn btn-text btn-default border-b border-dashed">
+            <button class="btn btn-text btn-default border-b border-dashed" data-fancybox-modal data-src="structure-dialog.html">
               <span class="text-sm opacity-70 font-medium">Смотреть состав заказа</span>
             </button>
             <div class="text-sm opacity-70 ">Дата заявки: 31.09.2023</div>
           </div>
           <div class="border-t border-default/10"></div>
           <div class="order-content">
-            <div class="grid grid-cols-3 gap-6">
+            <div class="grid lg:grid-cols-3 gap-3 lg:gap-6">
               <div>
-                <div class="font-semibold font-alt mb-2">Статус заказа:</div>
+                <div class="font-semibold font-alt mb-1 lg:mb-2">Статус заказа:</div>
 
                 <div class="relative" data-toggle-cover>
                   <button class="btn btn-[#DDFFA6] btn-fill btn-sm gap-1.5 rounded-full text-grey w-full" data-toggle-link>
@@ -135,23 +141,11 @@
                     <c-icon class="icon ml-auto" href="img/icons.svg#to-down"></c-icon>
                   </button>
 
-                  <div class="dropdown left-0 w-full p-4" data-toggle-content>
-                    <div class="font-alt font-semibold opacity-50 mb-2">Предыдущие статусы</div>
-
-                    <div class="text-sm font-semibold">Отгрузка</div>
-                    <div class="text-sm">от 21.10.2024</div>
-                    <div class="border-t border-dashed border-default/30 my-2"></div>
-                    <div class="text-sm font-semibold">Отгрузка</div>
-                    <div class="text-sm">от 19.10.2024</div>
-                    <div class="border-t border-dashed border-default/30 my-2"></div>
-                    <div class="text-sm font-semibold">Отгрузка завершена</div>
-                    <div class="text-sm">от 11.10.2024</div>
-                  </div>
-                  <div class="dropdown-shadow" data-toggle-link></div>
+                  <%= require('./html-includes/order-status-dropdown.html')() %>
                 </div>
               </div>
               <div>
-                <div class="font-semibold font-alt mb-2">Статус оплаты:</div>
+                <div class="font-semibold font-alt mb-1 lg:mb-2">Статус оплаты:</div>
                 <div class="relative" data-toggle-cover>
                   <button class="btn btn-[#E4EEFF] btn-fill btn-sm gap-1.5 rounded-full text-grey w-full" data-toggle-link>
                     <div class="text-sm leading-none font-semibold">Ожидает оплаты</div>
@@ -159,46 +153,35 @@
                     <c-icon class="icon ml-auto" href="img/icons.svg#to-down"></c-icon>
                   </button>
 
-
-                  <div class="dropdown left-0 w-full p-4" data-toggle-content>
-                    <div class="font-alt font-semibold opacity-50 mb-2">Предыдущие статусы</div>
-
-                    <div class="text-sm font-semibold">Отгрузка</div>
-                    <div class="text-sm">от 21.10.2024</div>
-                    <div class="border-t border-dashed border-default/30 my-2"></div>
-                    <div class="text-sm font-semibold">Отгрузка</div>
-                    <div class="text-sm">от 19.10.2024</div>
-                    <div class="border-t border-dashed border-default/30 my-2"></div>
-                    <div class="text-sm font-semibold">Отгрузка завершена</div>
-                    <div class="text-sm">от 11.10.2024</div>
-                  </div>
-                  <div class="dropdown-shadow" data-toggle-link></div>
+                  <%= require('./html-includes/order-status-dropdown.html')() %>
                 </div>
               </div>
               <div>
-                <div class="font-semibold font-alt mb-2">Остаток отсрочки платежа:</div>
-                <div class="relative">
-                  <button class="btn btn-l2 btn-fill btn-sm gap-1.5 rounded-full text-grey w-full">
+                <div class="font-semibold font-alt mb-1 lg:mb-2">Остаток отсрочки платежа:</div>
+                <div class="relative" data-toggle-cover>
+                  <button class="btn btn-default btn-light btn-sm gap-1.5 rounded-full w-full" data-toggle-link>
                     <div class="text-sm leading-none font-semibold">До 22.05.2024</div>
                     <div class="text-sm leading-none opacity-60 font-normal ml-auto">Еще 2 дня</div>
                   </button>
+
+                  <%= require('./html-includes/order-status-calendar.html')() %>
                 </div>
               </div>
             </div>
             <div class="mt-5">
-              <div class="font-alt font-semibold mb-4">Документы:</div>
+              <div class="font-alt font-semibold mb-2 lg:mb-4">Документы:</div>
               <div class="flex flex-col items-start gap-2 group" data-toggle-cover>
-                <a href="javascript:;" class="btn btn-text btn-primary border-b border-dashed">
-                  Доставка №155371/2 от 23.04.2024 (СДЭК (Самовывоз), к оплате 0 ₽)
+                <a href="javascript:;" class="btn btn-text btn-primary border-b border-dashed  max-w-full">
+                  <span class="text-left truncate max-lg:text-sm"> Доставка №155371/2 от 23.04.2024 (СДЭК (Самовывоз), к оплате 0 ₽)</span>
                 </a>
-                <a href="javascript:;" class="btn btn-text btn-primary border-b border-dashed">
-                  Доставка №155371/2 от 23.04.2024 (СДЭК (Самовывоз)
+                <a href="javascript:;" class="btn btn-text btn-primary border-b border-dashed  max-w-full">
+                  <span class="text-left truncate max-lg:text-sm"> Доставка №155371/2 от 23.04.2024 (СДЭК (Самовывоз)</span>
                 </a>
-                <a href="javascript:;" class="btn btn-text btn-primary border-b border-dashed hidden group-[.toggle-active]:flex">
-                  Доставка №155371/2 от 23.04.2024 (СДЭК (Самовывоз)
+                <a href="javascript:;" class="btn btn-text btn-primary border-b border-dashed  max-w-full hidden group-[.toggle-active]:flex">
+                  <span class="text-left truncate max-lg:text-sm"> Доставка №155371/2 от 23.04.2024 (СДЭК (Самовывоз)</span>
                 </a>
-                <a href="javascript:;" class="btn btn-text btn-primary border-b border-dashed hidden group-[.toggle-active]:flex">
-                  Доставка №155371/2 от 23.04.2024 (СДЭК (Самовывоз)
+                <a href="javascript:;" class="btn btn-text btn-primary border-b border-dashed  max-w-full hidden group-[.toggle-active]:flex">
+                  <span class="text-left truncate max-lg:text-sm"> Доставка №155371/2 от 23.04.2024 (СДЭК (Самовывоз)</span>
                 </a>
                 <button class="btn btn-text btn-primary border-b border-dashed font-semibold" data-toggle-link>
                   <span class="active-disabled">Показать еще</span>
@@ -206,7 +189,7 @@
                 </button>
               </div>
             </div>
-            <div class="mt-6 flex items-center justify-between bg-default/5 p-4 rounded-xl">
+            <div class="mt-6 flex items-start lg:items-center justify-between bg-default/5 p-4 rounded-xl max-lg:flex-col gap-2">
               <div class="flex items-center gap-4">
                 <div class="size-10 rounded-full relative overflow-hidden">
                   <img src="img/test.jpg" alt="" class="absolute-fit object-cover">
@@ -216,12 +199,39 @@
                   <div class="text-sm opacity-60">Константинова Юлия Владимировна</div>
                 </div>
               </div>
-              <div class="h-10 w-px bg-default/15"></div>
+              <div class="w-full h-px lg:h-10 lg:w-px bg-default/15"></div>
               <div>
                 <div class="text-sm font-alt font-semibold text-primary">+7 (918) 000 0000</div>
                 <div class="text-sm opacity-60">YulaYula@mail.ru</div>
               </div>
-              <button class="btn btn-primary btn-fill">Отправить сообщение</button>
+              <button class="btn btn-primary btn-fill" data-fancybox-modal data-src="message-dialog.html">Отправить сообщение</button>
+            </div>
+            <div class="mt-6 flex max-sm:flex-col sm:items-center justify-between gap-3">
+              <div class="text-sm font-alt font-semibold">Вы можете оценить заказ и оставить свой комментарий</div>
+              <button class="btn btn-default btn-contur gap-2 border-default/20" data-fancybox-modal data-src="review-dialog.html">
+                <c-icon class="icon text-2xl text-yellow" href="img/icons.svg#star"></c-icon>
+                <div class="font-alt whitespace-nowrap">Оценить заказ</div>
+              </button>
+            </div>
+            <div class="mt-6 bg-yellow/10 py-6 px-4 relative rounded-xl">
+              <div class="font-alt font-semibold">Оценка заказа</div>
+              <div class="mt-3 flex gap-2">
+                <c-icon class="icon text-2xl text-yellow" href="img/icons.svg#star"></c-icon>
+                <c-icon class="icon text-2xl text-yellow" href="img/icons.svg#star"></c-icon>
+                <c-icon class="icon text-2xl text-yellow" href="img/icons.svg#star"></c-icon>
+                <c-icon class="icon text-2xl text-yellow" href="img/icons.svg#star"></c-icon>
+                <c-icon class="icon text-2xl text-default/20" href="img/icons.svg#star"></c-icon>
+              </div>
+              <div class="mt-3 text-sm">
+                Всё привезли вовремя, в хорошем состоянии. Курьеры вежливые, опрятные, всегда готовы помочь.
+                Спасибо за качественный сервис!
+              </div>
+
+              <div class="sm:absolute sm:right-4 sm:top-6 max-sm:mt-3">
+                <button class="btn btn-text btn-primary border-b border-dashed font-semibold" data-fancybox-modal data-src="review-dialog.html">
+                  Редактировать
+                </button>
+              </div>
             </div>
           </div>
         </div>

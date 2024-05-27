@@ -57,6 +57,10 @@
   padding-top    : 12px;
   padding-bottom : 12px;
 
+  @media (max-width:theme('screens.lg')) {
+    padding-top   : 6px;
+    padding-bottom: 6px;
+  }
 
   &-user {
     &-btn {
@@ -124,7 +128,6 @@
   }
 }
 
-
 .dashboard {
   &-layout {
     padding-top   : 32px;
@@ -141,13 +144,43 @@
   border-radius: 24px;
 
   @media (max-width:theme('screens.lg')) {
-    display: none;
+    position     : fixed;
+    left         : 0;
+    top          : 0;
+    height       : 100%;
+    overflow     : hidden;
+    width        : 300px;
+    z-index      : theme('zIndex.2');
+    border-radius: 0;
+    transition   : .25s ease;
+
+    &:not(.toggle-active) {
+      transform: translateX(-100%);
+    }
   }
 
-  @media (max-width:theme('screens.sm')) {
-    border-radius: 16px;
+  &-shadow {
+    position  : fixed;
+    inset     : 0;
+    z-index   : calc(theme('zIndex.2') - 1);
+    background: rgba(0, 0, 0, 0.5);
+    transition: .25s ease;
+
+    @media (min-width:theme('screens.lg')) {
+      display: none;
+    }
   }
 
+  &:not(.toggle-active)~&-shadow {
+    opacity       : 0;
+    pointer-events: none;
+  }
+
+}
+
+.content {
+  flex-grow: 1;
+  max-width: 100%;
 }
 
 .tabs {
@@ -157,6 +190,16 @@
   border-bottom: 1px solid theme('colors.default / 10%');
   gap          : calc(2 * var(--padding));
   margin-top   : calc(-1 * var(--padding));
+  overflow     : auto;
+  width        : calc(100% + 30px);
+  margin-left  : -15px;
+  padding-left : 15px;
+  padding-right: 15px;
+
+  @media (max-width:theme('screens.lg')) {
+    --padding: 10px;
+
+  }
 
   &-item {
     font-family : theme('fontFamily.alt');
@@ -166,6 +209,12 @@
     margin-left : calc(-1 * var(--padding));
     margin-right: calc(-1 * var(--padding));
     position    : relative;
+    white-space : nowrap;
+
+    @media (max-width:theme('screens.sm')) {
+      font-size: 14px;
+    }
+
 
     &:not(.active) {
       color: theme('colors.default / 60%');
@@ -204,10 +253,18 @@
 
   &-header {
     padding: 24px;
+
+    @media (max-width:theme('screens.sm')) {
+      padding: 20px 15px;
+    }
   }
 
   &-content {
     padding: 24px;
+
+    @media (max-width:theme('screens.sm')) {
+      padding: 20px 15px;
+    }
   }
 }
 
@@ -227,7 +284,7 @@
     pointer-events: none;
   }
 
-  @media (max-width:theme('screens.sm')) {
+  @media (max-width:theme('screens.md')) {
     position     : fixed;
     bottom       : 0;
     left         : 0;
@@ -237,7 +294,7 @@
   }
 
   &-shadow {
-    @media (max-width:theme('screens.sm')) {
+    @media (max-width:theme('screens.md')) {
       position  : fixed;
       inset     : 0;
       z-index   : theme('zIndex.3');
@@ -251,5 +308,104 @@
   &:not(.toggle-active)~&-shadow {
     opacity       : 0;
     pointer-events: none;
+  }
+}
+
+.dialog {
+  padding      : 0;
+  background   : theme('colors.l3');
+  box-shadow   : 0 10px 15px 0 rgba(0, 0, 0, 0.039);
+  border-radius: 24px;
+  overflow     : hidden;
+  max-width    : 100%;
+
+  @media (max-width:theme('screens.sm')) {
+    border-radius: 16px;
+  }
+
+}
+
+.rating-field {
+  &-item {
+    color     : theme('colors.black / 20%');
+    cursor    : pointer;
+    transition: .2s ease;
+
+    @media(hover) {
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    &:has(:checked) {
+      transform : scale(1.2);
+      transition: transform .35s var(--elastic), color .2s ease;
+
+    }
+  }
+
+  @media(hover) {
+    &:hover &-item {
+      color: theme('colors.yellow');
+    }
+
+    &-item:hover~&-item {
+      color: theme('colors.black / 20%');
+    }
+  }
+
+  &:has(:checked) &-item {
+    color: theme('colors.yellow');
+  }
+
+  &-item:has(:checked)~&-item {
+    color: theme('colors.black / 20%');
+  }
+}
+
+.review-dialog {
+  width: 386px;
+
+}
+
+.confirm-dialog,
+.message-dialog {
+  width: 450px;
+}
+
+.info-dialog {
+  width: 372px;
+}
+
+.structure-dialog {
+  width: 970px;
+}
+
+.tooltip {
+  position      : absolute;
+  padding       : 8px 12px;
+  border-radius : 8px;
+  font-size     : 12px;
+  z-index       : 2;
+  background    : theme('colors.grey');
+  color         : #fff;
+  opacity       : 0;
+  pointer-events: none;
+  transition    : .25s ease;
+
+  &.active {
+    background: theme('colors.green');
+  }
+
+  &-right {
+    left     : calc(100% + 8px);
+    transform: translateX(10px);
+  }
+
+  @media(hover) {
+    &:is(.group:hover &) {
+      opacity  : 1;
+      transform: none;
+    }
   }
 }

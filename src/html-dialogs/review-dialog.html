@@ -1,0 +1,41 @@
+<form class="review-dialog dialog">
+  <div class="auth-form-header">
+    <div class="font-alt font-semibold text-2xl sm:text-3.5xl text-center">Оцените заказ</div>
+  </div>
+  <div class="p-6">
+    <div class="font-alt font-semibold text-center">
+      Заказ № <span class="text-primary">12900011345633444777</span> завершен!
+    </div>
+
+    <div class="rating-field mt-6">
+      <div class="flex justify-between">
+        <label class="rating-field-item flex-grow">
+          <input type="radio" name="rating" hidden value="1">
+          <c-icon class="icon text-4.5xl mx-auto" href="img/icons.svg#star"></c-icon>
+        </label>
+        <label class="rating-field-item flex-grow">
+          <input type="radio" name="rating" hidden value="2">
+          <c-icon class="icon text-4.5xl mx-auto" href="img/icons.svg#star"></c-icon>
+        </label>
+        <label class="rating-field-item flex-grow">
+          <input type="radio" name="rating" hidden value="3">
+          <c-icon class="icon text-4.5xl mx-auto" href="img/icons.svg#star"></c-icon>
+        </label>
+        <label class="rating-field-item flex-grow">
+          <input type="radio" name="rating" hidden value="4">
+          <c-icon class="icon text-4.5xl mx-auto" href="img/icons.svg#star"></c-icon>
+        </label>
+        <label class="rating-field-item flex-grow">
+          <input type="radio" name="rating" hidden checked value="5">
+          <c-icon class="icon text-4.5xl mx-auto" href="img/icons.svg#star"></c-icon>
+        </label>
+      </div>
+    </div>
+
+    <label class="block mt-8">
+      <div class="font-semibold mb-2">Комментарий</div>
+      <textarea class="input h-40 w-full min-h-32 max-h-96" required></textarea>
+    </label>
+    <button class="btn btn-primary btn-fill mt-4 w-full">Отправить</button>
+  </div>
+</form>

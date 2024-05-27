@@ -1,0 +1,42 @@
+<div class="dropdown left-0 w-full  p-4" data-toggle-content>
+  <div class="text-center text-sm font-semibold">Май 2024</div>
+
+  <div class="grid grid-cols-7 w-full max-w-72 mx-auto">
+    <div class="aspect-square flex items-center justify-center">
+      <span class="text-sm text-primary">Пн</span>
+    </div>
+    <div class="aspect-square flex items-center justify-center">
+      <span class="text-sm text-primary">Вт</span>
+    </div>
+    <div class="aspect-square flex items-center justify-center">
+      <span class="text-sm text-primary">Ср</span>
+    </div>
+    <div class="aspect-square flex items-center justify-center">
+      <span class="text-sm text-primary">Чт</span>
+    </div>
+    <div class="aspect-square flex items-center justify-center">
+      <span class="text-sm text-primary">Пт</span>
+    </div>
+    <div class="aspect-square flex items-center justify-center">
+      <span class="text-sm text-primary">Сб</span>
+    </div>
+    <div class="aspect-square flex items-center justify-center">
+      <span class="text-sm text-primary">Вс</span>
+    </div>
+    <% for(let i = -5; i < (31 + 6); i++) { %>
+
+    <div <%= i == 22 ? 
+    'class="aspect-square flex items-center justify-center rounded-full text-white bg-primary"' :
+    'class="aspect-square flex items-center justify-center"'  %>>
+      <% if(i <= 0) { %>
+      <span class="text-sm opacity-20"><%= 31 + i %></span>
+      <% } else if(i > 31) { %>
+      <span class="text-sm opacity-20"><%= i - 31 %></span>
+      <% } else { %>
+      <span class="text-sm "><%= i %></span>
+      <% } %>
+    </div>
+    <% } %>
+  </div>
+</div>
+<div class="dropdown-shadow" data-toggle-link></div>

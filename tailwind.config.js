@@ -71,7 +71,8 @@ module.exports = {
         xs: '1.1'
       },
       borderRadius: {
-        '2.5xl': '1.25rem'
+        '2.5xl': '1.25rem',
+        '4xl': '2rem',
       }
     },
   },

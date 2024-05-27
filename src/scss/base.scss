@@ -28,6 +28,8 @@
   --font-base: 'Inter', arial, helvetica, sans-serif;
   --font-alt : 'Gilroy', arial, helvetica, sans-serif;
 
+  // ease
+  --elastic: cubic-bezier(0.34, 2, 0.64, 1);
 }
 
 body {
