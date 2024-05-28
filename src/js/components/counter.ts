@@ -120,12 +120,12 @@ class Counter extends HTMLElement {
 
   attributeChangedCallback(name: string, oldValue: string, newValue: string) {
     switch (name) {
-      case 'value':
-        {
-          this.setValue(newValue)
-        }
+    case 'value':
+      {
+        this.setValue(newValue)
+      }
 
-        break
+      break
     }
   }
 }

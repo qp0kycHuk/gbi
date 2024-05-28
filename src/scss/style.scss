@@ -50,16 +50,24 @@
 }
 
 .header {
+  position       : sticky;
+  top            : 0;
   display        : flex;
   align-items    : center;
   justify-content: space-between;
   background     : theme('colors.l3');
   padding-top    : 12px;
   padding-bottom : 12px;
+  z-index        : theme('zIndex.1');
 
   @media (max-width:theme('screens.lg')) {
     padding-top   : 6px;
     padding-bottom: 6px;
+  }
+
+  @media (max-width:theme('screens.sm')) {
+    z-index: theme('zIndex.3');
+
   }
 
   &-user {
@@ -136,12 +144,15 @@
 }
 
 .sidebar {
+  position     : sticky;
+  top          : 100px;
   background   : #0E143A;
   color        : #fff;
   width        : 362px;
   flex-shrink  : 0;
   padding      : 32px 24px;
   border-radius: 24px;
+  z-index      : theme('zIndex.1');
 
   @media (max-width:theme('screens.lg')) {
     position     : fixed;
@@ -150,6 +161,7 @@
     height       : 100%;
     overflow     : hidden;
     width        : 300px;
+    max-width    : 100%;
     z-index      : theme('zIndex.2');
     border-radius: 0;
     transition   : .25s ease;
@@ -157,6 +169,11 @@
     &:not(.toggle-active) {
       transform: translateX(-100%);
     }
+  }
+
+
+  @media (max-width:theme('screens.sm')) {
+    padding-top: 80px;
   }
 
   &-shadow {
@@ -381,7 +398,7 @@
   width: 970px;
 }
 
-.tooltip {
+.copy-notification {
   position      : absolute;
   padding       : 8px 12px;
   border-radius : 8px;
@@ -392,14 +409,18 @@
   opacity       : 0;
   pointer-events: none;
   transition    : .25s ease;
+  left          : calc(100% + 8px);
+  transform     : translateX(10px);
+
+  @media (max-width:theme('screens.md')) {
+    left : auto;
+    right: calc(100% + 8px);
+  }
 
   &.active {
     background: theme('colors.green');
-  }
-
-  &-right {
-    left     : calc(100% + 8px);
-    transform: translateX(10px);
+    opacity   : 1;
+    transform : none;
   }
 
   @media(hover) {

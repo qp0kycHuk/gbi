@@ -3,7 +3,8 @@
 
 <header class="header">
   <button class="btn btn-sm btn-text lg:hidden mr-3" data-toggle-link="sidebar">
-    <c-icon class="icon text-3.5xl" href="img/icons.svg#menu"></c-icon>
+    <c-icon class="icon text-3.5xl active-disabled" href="img/icons.svg#menu"></c-icon>
+    <c-icon class="icon text-3.5xl active-enabled" href="img/icons.svg#cross"></c-icon>
   </button>
   <a href="/orders.html" class="flex items-center gap-4 sm:gap-5">
     <img src="img/logo.png" alt="" class="w-12 sm:w-18">
@@ -40,12 +41,12 @@
 <section class="dashboard-layout">
   <div class="flex items-start gap-6">
     <div class="sidebar" id="sidebar">
-      <div class="flex items-center px-4 -mx-4 bg-white/15 py-6 -mt-6 mb-6 rounded-2.5xl">
+      <div class="flex lg:items-center px-4 -mx-4 bg-white/15 py-6 -mt-6 mb-6 rounded-2.5xl max-lg:flex-col gap-3">
         <div>
           <div class="font-medium">Щербаков Иван Евгеньевич</div>
           <div class="opacity-70">ООО “Кровь и бетон”</div>
         </div>
-        <div class="size-12 bg-l3 rounded-full overflow-hidden relative ml-auto">
+        <div class="size-12 bg-l3 rounded-full overflow-hidden relative lg:ml-auto max-lg:-order-1">
           <div class="size-full bg-primary/15 flex">
             <c-icon class="icon text-xl text-primary m-auto dark:text-white" href="img/icons.svg#user"></c-icon>
             <!-- or -->
@@ -58,7 +59,9 @@
           <c-icon class="icon text-xl text-yellow" href="img/icons.svg#email"></c-icon>
           <div class="font-semibold opacity-50">Почта</div>
         </div>
-        <div class="mt-2"> blood&block@info.ru </div>
+        <div class="mt-2">
+          <a href="javascript:;" class="hover:underline "> blood&block@info.ru </a>
+        </div>
       </div>
       <div class="my-3 border-t border-white/30 border-dashed"></div>
       <div class="">
@@ -95,8 +98,8 @@
           <div class="font-semibold opacity-50">Телефон-ы:</div>
         </div>
         <div class="mt-2">
-          (861) 277-34-19 <br>
-          (861) 277-34-19
+          <a href="javacript:;" class="hover:underline"> (861) 277-34-19</a> <br>
+          <a href="javacript:;" class="hover:underline"> (861) 277-34-19</a>
         </div>
       </div>
     </div>
@@ -110,18 +113,28 @@
       </div>
 
       <div class="flex flex-col gap-4">
-
+        <div class="p-4 rounded-xl border border-default/20 w-64 max-w-full bg-l1 relative">
+          <div class="font-alt font-semibold text-1.5xl opacity-60">Нет заказов</div>
+          <div class="flex mt-6">
+            <img src="img/placeholder-arrow.svg" alt="">
+            <img src="img/placeholder-arrow.svg" alt="">
+          </div>
+          <div class="p-4 rounded-xl border border-default/20 w-full h-full absolute top-0 -right-2 -z-[1]"></div>
+          <div class="p-4 rounded-xl border border-default/20 w-full h-full absolute top-0 -right-4 -z-[1]"></div>
+        </div>
+        <% for(let i = 0; i < 10; i++) { %>
         <div class="order">
           <div class="flex items-start lg:items-center justify-between gap-3 order-header max-lg:flex-col">
-            <button class="relative flex items-center gap-3 btn-group text-left group" data-copy="99900011122233444555">
+            <button class="relative flex items-center gap-3 btn-group text-left group max-lg:w-full" data-copy="99900011122233444555">
               <div class="sm:text-1.5xl font-alt font-semibold">
                 Заказ № <span class="text-primary">99900011122233444555</span>
               </div>
-              <div class="btn btn-icon btn-primary btn-sm">
+              <div class="btn btn-icon btn-primary btn-sm max-lg:ml-auto">
                 <c-icon class="icon opacity-60 text-xl" href="img/icons.svg#copy"></c-icon>
+
+                <div class="copy-notification" data-copy-notification>Скопировать</div>
               </div>
 
-              <div class="tooltip tooltip-right" data-copy-notification>Скопировать</div>
             </button>
             <button class="btn btn-text btn-default border-b border-dashed" data-fancybox-modal data-src="structure-dialog.html">
               <span class="text-sm opacity-70 font-medium">Смотреть состав заказа</span>
@@ -159,7 +172,7 @@
               <div>
                 <div class="font-semibold font-alt mb-1 lg:mb-2">Остаток отсрочки платежа:</div>
                 <div class="relative" data-toggle-cover>
-                  <button class="btn btn-default btn-light btn-sm gap-1.5 rounded-full w-full" data-toggle-link>
+                  <button class="btn btn-default btn-light btn-sm gap-1.5 rounded-full w-full text-red" data-toggle-link>
                     <div class="text-sm leading-none font-semibold">До 22.05.2024</div>
                     <div class="text-sm leading-none opacity-60 font-normal ml-auto">Еще 2 дня</div>
                   </button>
@@ -170,7 +183,7 @@
             </div>
             <div class="mt-5">
               <div class="font-alt font-semibold mb-2 lg:mb-4">Документы:</div>
-              <div class="flex flex-col items-start gap-2 group" data-toggle-cover>
+              <div class="flex flex-col items-start gap-2 group" data-toggle-cover data-toggle-static>
                 <a href="javascript:;" class="btn btn-text btn-primary border-b border-dashed  max-w-full">
                   <span class="text-left truncate max-lg:text-sm"> Доставка №155371/2 от 23.04.2024 (СДЭК (Самовывоз), к оплате 0 ₽)</span>
                 </a>
@@ -191,7 +204,7 @@
             </div>
             <div class="mt-6 flex items-start lg:items-center justify-between bg-default/5 p-4 rounded-xl max-lg:flex-col gap-2">
               <div class="flex items-center gap-4">
-                <div class="size-10 rounded-full relative overflow-hidden">
+                <div class="size-10 shrink-0 rounded-full relative overflow-hidden">
                   <img src="img/test.jpg" alt="" class="absolute-fit object-cover">
                 </div>
                 <div class="">
@@ -200,11 +213,11 @@
                 </div>
               </div>
               <div class="w-full h-px lg:h-10 lg:w-px bg-default/15"></div>
-              <div>
-                <div class="text-sm font-alt font-semibold text-primary">+7 (918) 000 0000</div>
-                <div class="text-sm opacity-60">YulaYula@mail.ru</div>
+              <div class="flex flex-col">
+                <a href="javacript:;" class="text-sm font-alt font-semibold text-primary hover:underline">+7 (918) 000 0000</a>
+                <a href="javacript:;" class="text-sm opacity-60 hover:underline">YulaYula@mail.ru</a>
               </div>
-              <button class="btn btn-primary btn-fill" data-fancybox-modal data-src="message-dialog.html">Отправить сообщение</button>
+              <button class="btn btn-primary btn-fill px-3 whitespace-nowrap" data-fancybox-modal data-src="message-dialog.html">Отправить сообщение</button>
             </div>
             <div class="mt-6 flex max-sm:flex-col sm:items-center justify-between gap-3">
               <div class="text-sm font-alt font-semibold">Вы можете оценить заказ и оставить свой комментарий</div>
@@ -235,6 +248,7 @@
             </div>
           </div>
         </div>
+        <% } %>
 
       </div>
     </div>

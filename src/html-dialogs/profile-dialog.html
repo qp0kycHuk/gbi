@@ -26,15 +26,57 @@
         <div class="font-semibold mb-2">Юридический адрес</div>
         <input type="text" class="input w-full">
       </label>
-      <label class="block">
-        <div class="font-semibold mb-2">Телефон</div>
-        <input type="text" class="input w-full">
-      </label>
 
+      <div id="phones">
+        <div class="font-semibold mb-2">Телефон </div>
+        <div class="flex flex-col gap-4">
+          <div class="flex gap-2" v-for="(phone, index) in phones" :key="phone.id" v-show="!phone.removed">
+            <label class="block grow">
+              <input :value="phone.value" @input="phone.value = getMaskedValue($event.target.value)" type="tel" class="input w-full" :name="phone.removed ? '' : 'phone[]'" :required="!phone.removed">
+            </label>
+            <button type="button" class="btn btn-red btn-light self-end max-sm:btn-icon" v-show="index != 0" @click="phone.removed = true">
+              <span class="max-sm:hidden">Удалить</span>
+              <c-icon class="icon sm:hidden text-xl" href="img/icons.svg#cross"></c-icon>
+            </button>
+          </div>
+        </div>
+        <div class=" flex mt-4">
+          <button type="button" @click="add" class="btn btn-text btn-primary font-semibold border-b border-dashed">Добавить телефон</button>
+        </div>
+      </div>
     </div>
     <div class="grid sm:grid-cols-2 gap-4 mt-12">
       <button class="btn btn-primary btn-fill  w-full">Сохранить</button>
-      <button class="btn btn-primary btn-light  w-full">Отмена</button>
+      <button class="btn btn-primary btn-light  w-full" type="button" data-fancybox-close>Отмена</button>
     </div>
   </div>
 </form>
+
+<script>
+  (() => {
+    const app = Vue.createApp({
+      data: () => ({
+        phones: [{
+            id: 1,
+            value: window.phoneMask.ru.getMaskedValue('71111111111'),
+          },
+          {
+            id: 2,
+            value: window.phoneMask.ru.getMaskedValue('72222222222'),
+          },
+        ],
+      }),
+      methods: {
+        getMaskedValue: window.phoneMask.ru.getMaskedValue,
+        getUnmaskedValue: window.phoneMask.ru.getUnmaskedValue,
+        add() {
+          this.phones.push({
+            id: +new Date(),
+            value: '',
+          })
+        },
+      },
+    });
+    app.mount(document.getElementById('phones'))
+  })()
+</script>

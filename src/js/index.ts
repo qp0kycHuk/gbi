@@ -6,7 +6,13 @@ import scrollTo from './scrollTo'
 import tab from 'npm-kit-tab'
 import toggle from 'npm-kit-toggle'
 import ripple from '@qpokychuk/ripple'
-import swiper from './swiper'
+// import swiper from './swiper'
+
+// @ts-ignore
+import * as Vue from 'vue/dist/vue.esm-bundler.js'
+
+// @ts-ignore
+window.Vue = Vue
 
 import '../scss/index.scss'
 
@@ -26,7 +32,7 @@ function loadHandler() {
   ripple.attach('.waved')
   ripple.deAttach('.btn-text')
 
-  swiper.init()
+  // swiper.init()
 }
 
 let timeOut: NodeJS.Timeout

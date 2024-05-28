@@ -27,6 +27,8 @@
     ],
     "no-invalid-position-at-import-rule": null,
     "value-keyword-case": null,
+    "selector-class-pattern": null,
+    "keyframes-name-pattern": null,
     "alpha-value-notation": "number",
     "color-function-notation": [
       "legacy",

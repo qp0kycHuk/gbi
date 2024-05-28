@@ -1,5 +1,10 @@
-import by from './lang/by'
 import ru from './lang/ru'
+// import by from './lang/by'
+
+// @ts-ignore
+window.phoneMask = {
+  ru,
+}
 
 function init(selector: string) {
   const country = ru
