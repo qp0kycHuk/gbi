@@ -35,7 +35,7 @@ function init() {
 
   window.Fancybox = Fancybox
 
-  Fancybox.modal.open('profile-dialog.html')
+  // Fancybox.modal.open('profile-dialog.html')
 }
 
 interface CustomWindow extends Window {
